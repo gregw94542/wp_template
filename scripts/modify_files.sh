@@ -8,12 +8,22 @@ echo " this code expects that the template file "../../TZ_Insult" is poplulated 
 echo "==================================================================="
 
 SRC=$(cd ..; pwd)
-cp -r  ../../TZ_Insult/* ..
+#cp -r  ../../TZ_Insult/* ..
 
 echo -n "Enter name of plugin: "
 read PLUGIN
+rm -rf ../../$PLUGIN
+mkdir ../../$PLUGIN
+
+
+SRC=$(cd ../../$PLUGIN; pwd)
 echo Scanning $SRC - converting to $PLUGIN
 NAMETOFIX=$(find $SRC -name "TZ*"   -print)
+
+
+cp  FOO.tar  $SRC
+(cd $SRC; pwd;  ls ; tar xf FOO.tar)
+
 
 for name in $NAMETOFIX
 do
